@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-const App = () => {
+export const App = () => {
   return (
     <div>
       <header>
@@ -12,5 +12,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
