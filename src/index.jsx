@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
-import { SignUpProvider } from './common/contexts/signUp';
+import { SignUpProvider } from './common/contexts';
+import { ThemeProvider } from './common/providers';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <SignUpProvider>
         <RouterProvider router={router} />
       </SignUpProvider>

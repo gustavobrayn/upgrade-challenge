@@ -16,7 +16,6 @@ export function Confirmation() {
   };
 
   useEffect(() => {
-    console.log(signUpApi);
     if (signUpApi.success) {
       return navigate('/success');
     }

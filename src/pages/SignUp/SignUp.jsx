@@ -37,27 +37,33 @@ export function SignUp() {
         </header>
         <form onSubmit={onSubmit}>
           <Spacer y="md" />
+          <label htmlFor="name">First name</label>
           <Input
-            placeholder="First name"
+            id="name"
+            placeholder="John"
             name="name"
             onChange={handleChange}
             value={data.name}
             required
           />
           <Spacer y="xs" />
+          <label htmlFor="email">E-mail</label>
           <Input
-            placeholder="E-mail"
+            placeholder="john@doe.com"
             type="email"
             name="email"
+            id="email"
             onChange={handleChange}
             value={data.email}
             required
           />
           <Spacer y="xs" />
+          <label htmlFor="password">Password</label>
           <Input
             placeholder="Password"
             type="password"
             name="password"
+            id="password"
             onChange={handleChange}
             value={data.password}
             required

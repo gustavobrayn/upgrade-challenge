@@ -57,6 +57,7 @@ export function MoreInfo() {
         </header>
         <form onSubmit={onSubmit}>
           <Spacer y="md" />
+          <label htmlFor="color">Favorite color</label>
           <Select
             name="color"
             id="color"

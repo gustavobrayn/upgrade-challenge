@@ -9,7 +9,7 @@ export function Success() {
   const navigate = useNavigate();
 
   const onClickRestart = () => {
-    // setInfo({ name: '', email: '', password: '', color: '', terms: '' });
+    setInfo({ name: '', email: '', password: '', color: '', terms: '' });
     navigate('/', { replace: true });
   };
 
