@@ -24,6 +24,7 @@ export const theme = {
     full: '50%',
   },
   font: {
+    family: "'Roboto', sans-serif",
     weight: {
       regular: '400',
       semibold: '500',
