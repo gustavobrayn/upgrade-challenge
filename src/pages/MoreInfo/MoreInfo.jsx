@@ -80,7 +80,8 @@ export function MoreInfo() {
             required
             label={
               <Label>
-                I agree to <Link to="/">Terms and Conditions</Link>
+                I agree to{' '}
+                <Link to="/terms-and-conditions">Terms and Conditions</Link>
               </Label>
             }
           />
