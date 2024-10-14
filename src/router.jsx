@@ -6,7 +6,7 @@ import {
   Confirmation,
   Success,
   ErrorPage,
-import { SignUp, MoreInfo } from './pages';
+  NotFound,
 } from './pages';
 import { ErrorBoundary } from './common/components';
 
@@ -30,5 +30,5 @@ export const router = createBrowserRouter([
   },
   { path: '/success', element: <Success /> },
   { path: '/error', element: <ErrorPage /> },
-  { path: '/more-info', element: <MoreInfo /> },
+  { path: '*', element: <NotFound /> },
 ]);
