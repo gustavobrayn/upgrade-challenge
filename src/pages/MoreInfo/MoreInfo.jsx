@@ -76,6 +76,7 @@ export function MoreInfo() {
             id="terms"
             name="terms"
             onChange={onTermsChange}
+            checked={data.terms}
             required
             label={
               <Label>
