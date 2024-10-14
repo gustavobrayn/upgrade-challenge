@@ -8,7 +8,7 @@ export function SignUp() {
   const { info, setInfo } = useSignUp();
   const navigate = useNavigate();
   const [data, setData] = useState({
-    firstName: info.firstName || '',
+    name: info.name || '',
     email: info.email || '',
     password: info.password || '',
   });
@@ -39,9 +39,9 @@ export function SignUp() {
           <Spacer y="md" />
           <Input
             placeholder="First name"
-            name="firstName"
+            name="name"
             onChange={handleChange}
-            value={data.firstName}
+            value={data.name}
           />
           <Spacer y="xs" />
           <Input

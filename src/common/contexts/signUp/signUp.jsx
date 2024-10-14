@@ -5,7 +5,7 @@ const SignUpContext = createContext({});
 export const SignUpProvider = (props) => {
   const { children } = props;
   const [info, setInfo] = useState({
-    firstName: '',
+    name: '',
     email: '',
     password: '',
     color: '',
