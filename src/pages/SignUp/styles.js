@@ -23,8 +23,3 @@ export const Heading = styled.h1`
   font-size: ${({ theme }) => theme.font.headingSizes.h1};
   color: ${({ theme }) => theme.colors.text};
 `;
-
-export const Text = styled.p`
-  font-size: ${({ theme }) => theme.font.bodySizes.medium};
-  color: ${({ theme }) => theme.colors.text};
-`;

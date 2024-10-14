@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heading, Text, Wrapper, Content } from './styles';
+import { Heading, Wrapper, Content } from './styles';
 import { Spacer, Input, Button } from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 import { useNavigate } from 'react-router-dom';
