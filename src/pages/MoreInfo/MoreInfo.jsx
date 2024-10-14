@@ -66,7 +66,9 @@ export function MoreInfo() {
           >
             <option value="">Select your favorite color</option>
             {colors.data.map((color) => (
-              <option value={color}>{capitalize(color)}</option>
+              <option key={color} value={color}>
+                {capitalize(color)}
+              </option>
             ))}
           </Select>
           <Spacer y="xs" />
