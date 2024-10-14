@@ -62,6 +62,7 @@ export function MoreInfo() {
             id="color"
             onChange={handleChange}
             value={data.color}
+            required
           >
             <option value="">Select your favorite color</option>
             {colors.data.map((color) => (
@@ -73,6 +74,7 @@ export function MoreInfo() {
             id="terms"
             name="terms"
             onChange={onTermsChange}
+            required
             label={
               <Label>
                 I agree to <Link to="/">Terms and Conditions</Link>

@@ -42,6 +42,7 @@ export function SignUp() {
             name="name"
             onChange={handleChange}
             value={data.name}
+            required
           />
           <Spacer y="xs" />
           <Input
@@ -50,6 +51,7 @@ export function SignUp() {
             name="email"
             onChange={handleChange}
             value={data.email}
+            required
           />
           <Spacer y="xs" />
           <Input
@@ -58,6 +60,7 @@ export function SignUp() {
             name="password"
             onChange={handleChange}
             value={data.password}
+            required
           />
           <Spacer y="lg" />
           <Button type="submit">Next</Button>
