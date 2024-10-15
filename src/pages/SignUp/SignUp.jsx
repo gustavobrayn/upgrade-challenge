@@ -7,6 +7,7 @@ import {
   Heading,
   Card,
   PageWrapper,
+  Text,
 } from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 
@@ -46,7 +47,7 @@ export function SignUp() {
             id="name"
             placeholder="e.g. John"
             name="name"
-            label="First name"
+            label="First name*"
             onChange={handleChange}
             value={data.name}
             required
@@ -57,7 +58,7 @@ export function SignUp() {
             type="email"
             name="email"
             id="email"
-            label="E-mail"
+            label="E-mail*"
             onChange={handleChange}
             value={data.email}
             required
@@ -68,11 +69,13 @@ export function SignUp() {
             type="password"
             name="password"
             id="password"
-            label="Password"
+            label="Password*"
             onChange={handleChange}
             value={data.password}
             required
           />
+          <Spacer y="xs" />
+          <Text size="sm">All fields with * are required</Text>
           <Spacer y="lg" />
           <Button type="button" onClick={onSubmit}>
             Next

@@ -72,7 +72,7 @@ export function MoreInfo() {
           <Select
             name="color"
             id="color"
-            label="Favorite color"
+            label="Favorite color*"
             onChange={handleChange}
             value={data.color}
             required
@@ -88,10 +88,12 @@ export function MoreInfo() {
             label={
               <Text>
                 I agree to{' '}
-                <Link to="/terms-and-conditions">Terms and Conditions</Link>
+                <Link to="/terms-and-conditions">Terms and Conditions</Link>*
               </Text>
             }
           />
+          <Spacer y="xs" />
+          <Text size="sm">All fields with * are required</Text>
           <Spacer y="lg" />
           <Footer>
             <Button variant="outlined" type="button" onClick={onClickBack}>
