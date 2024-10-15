@@ -1,7 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, Wrapper, Content, ListItem, List, Footer } from './styles';
-import { Spacer, Button, Loading } from '../../common/components';
+import {
+  Spacer,
+  Button,
+  PageWrapper,
+  Card,
+  Heading,
+  Text,
+} from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 
 export function ErrorPage() {
@@ -14,17 +20,16 @@ export function ErrorPage() {
   };
 
   return (
-    <Wrapper>
-      <Spacer y="md" />
-      <Content>
+    <PageWrapper>
+      <Card>
         <header>
           <Heading>Error</Heading>
         </header>
         <Spacer y="md" />
-        <p>Uh oh, something went wrong. Please try again later.</p>
+        <Text>Uh oh, something went wrong. Please try again later.</Text>
         <Spacer y="lg" />
         <Button onClick={onClickRestart}>Restart</Button>
-      </Content>
-    </Wrapper>
+      </Card>
+    </PageWrapper>
   );
 }

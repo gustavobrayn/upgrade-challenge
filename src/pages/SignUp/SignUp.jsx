@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import { Heading, Wrapper, Content } from './styles';
-import { Spacer, Input, Button } from '../../common/components';
+import {
+  Spacer,
+  Input,
+  Button,
+  Text,
+  Heading,
+  Card,
+  PageWrapper,
+} from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,41 +36,40 @@ export function SignUp() {
   };
 
   return (
-    <Wrapper>
-      <Spacer y="md" />
-      <Content>
+    <PageWrapper>
+      <Card>
         <header>
           <Heading>Sign up</Heading>
         </header>
         <form onSubmit={onSubmit}>
           <Spacer y="md" />
-          <label htmlFor="name">First name</label>
           <Input
             id="name"
-            placeholder="John"
+            placeholder="e.g. John"
             name="name"
+            label="First name"
             onChange={handleChange}
             value={data.name}
             required
           />
           <Spacer y="xs" />
-          <label htmlFor="email">E-mail</label>
           <Input
-            placeholder="john@doe.com"
+            placeholder="e.g. john@doe.com"
             type="email"
             name="email"
             id="email"
+            label="E-mail"
             onChange={handleChange}
             value={data.email}
             required
           />
           <Spacer y="xs" />
-          <label htmlFor="password">Password</label>
           <Input
             placeholder="Password"
             type="password"
             name="password"
             id="password"
+            label="Password"
             onChange={handleChange}
             value={data.password}
             required
@@ -71,7 +77,7 @@ export function SignUp() {
           <Spacer y="lg" />
           <Button type="submit">Next</Button>
         </form>
-      </Content>
-    </Wrapper>
+      </Card>
+    </PageWrapper>
   );
 }

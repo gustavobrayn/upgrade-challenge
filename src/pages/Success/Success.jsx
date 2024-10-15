@@ -1,7 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, Wrapper, Content } from './styles';
-import { Spacer, Button } from '../../common/components';
+import {
+  Spacer,
+  Button,
+  PageWrapper,
+  Card,
+  Heading,
+  Text,
+} from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 
 export function Success() {
@@ -14,17 +20,16 @@ export function Success() {
   };
 
   return (
-    <Wrapper>
-      <Spacer y="md" />
-      <Content>
+    <PageWrapper>
+      <Card>
         <header>
           <Heading>Success!</Heading>
         </header>
         <Spacer y="md" />
-        <p>You should receive a confirmation email soon.</p>
+        <Text>You should receive a confirmation email soon.</Text>
         <Spacer y="lg" />
         <Button onClick={onClickRestart}>Restart</Button>
-      </Content>
-    </Wrapper>
+      </Card>
+    </PageWrapper>
   );
 }

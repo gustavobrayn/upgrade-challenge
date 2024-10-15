@@ -1,5 +1,12 @@
 import React from 'react';
-import { render, screen, renderHook, waitFor } from '@testing-library/react';
+import {
+  render,
+  screen,
+  renderHook,
+  waitFor,
+  fireEvent,
+  act,
+} from '@testing-library/react';
 import { SignUpProvider, useSignUp } from './signUp';
 
 const TestComponent = () => {
@@ -18,31 +25,41 @@ const TestComponent = () => {
 };
 
 describe('SignUpProvider', () => {
-  it('provides default state', () => {
+  it('should provide default state', () => {
     render(
       <SignUpProvider>
         <TestComponent />
       </SignUpProvider>
     );
 
-    expect(screen.getByText(/Name:/)).toHaveTextContent('Name: ');
+    expect(screen.getByText(/Name:/i)).toBeInTheDocument();
   });
 
-  it('updates state using context', async () => {
+  it('should update state using context', async () => {
     render(
       <SignUpProvider>
         <TestComponent />
       </SignUpProvider>
     );
 
-    screen.getByText('Update Name').click();
+    const button = screen.getByRole('button', { name: /update name/i });
 
-    await waitFor(() => {
-      expect(screen.getByText(/Name:/)).toHaveTextContent('Name: John Doe');
+    act(() => {
+      fireEvent.click(button);
     });
+
+    expect(screen.getByText(/Name: john doe/i)).toBeInTheDocument();
   });
 
   it('throws error when useSignUp is called outside of provider', () => {
-    expect(renderHook(() => useSignUp())).toThrow();
+    const consoleSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+
+    expect(() => {
+      renderHook(() => useSignUp());
+    }).toThrow();
+
+    consoleSpy.mockRestore();
   });
 });

@@ -31,9 +31,9 @@ export const theme = {
       bold: '700',
     },
     bodySizes: {
-      small: '0.75rem',
-      medium: '0.875rem',
-      large: '1rem',
+      sm: '0.75rem',
+      md: '1rem',
+      lg: '1.250rem',
     },
     headingSizes: {
       h1: '2rem',

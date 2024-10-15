@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BaseSelect = styled.select`
   font-family: ${({ theme }) => theme.font.family};
-  font-size: ${({ theme }) => theme.font.bodySizes.small};
+  font-size: ${({ theme }) => theme.font.bodySizes.md};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.secondary};
   border-color: ${({ theme }) => theme.colors.secondaryDark};

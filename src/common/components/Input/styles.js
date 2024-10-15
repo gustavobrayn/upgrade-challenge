@@ -10,6 +10,7 @@ export const BaseInput = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.neutralDark};
+    font-size: ${({ theme }) => theme.font.bodySizes.md};
   }
 
   &:focus {

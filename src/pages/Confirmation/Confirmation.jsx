@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heading, Wrapper, Content, ListItem, List, Footer } from './styles';
-import { Spacer, Button, Loading } from '../../common/components';
+import { ListItem, List, Footer } from './styles';
+import {
+  Spacer,
+  Button,
+  Loading,
+  PageWrapper,
+  Card,
+  Heading,
+  Text,
+} from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 import { capitalize, hidePassword } from '../../common/utils';
 import { useSignUpApi } from '../../common/hooks';
@@ -32,21 +40,20 @@ export function Confirmation() {
   }
 
   return (
-    <Wrapper>
-      <Spacer y="md" />
-      <Content>
+    <PageWrapper>
+      <Card>
         <header>
           <Heading>Confirmation</Heading>
         </header>
         <Spacer y="md" />
         <List>
-          <ListItem>First name: {info.name}</ListItem>
-          <ListItem>E-mail: {info.email}</ListItem>
-          <ListItem>Password: {hidePassword(info.password)}</ListItem>
-          <ListItem>Favorite color: {capitalize(info.color)}</ListItem>
-          <ListItem>
+          <Text as="li">First name: {info.name}</Text>
+          <Text as="li">E-mail: {info.email}</Text>
+          <Text as="li">Password: {hidePassword(info.password)}</Text>
+          <Text as="li">Favorite color: {capitalize(info.color)}</Text>
+          <Text as="li">
             Terms and conditions: {info.terms ? 'Agreed' : 'Not agreed'}
-          </ListItem>
+          </Text>
         </List>
         <Spacer y="lg" />
         <Footer>
@@ -55,7 +62,7 @@ export function Confirmation() {
           </Button>
           <Button onClick={onSubmit}>Submit</Button>
         </Footer>
-      </Content>
-    </Wrapper>
+      </Card>
+    </PageWrapper>
   );
 }

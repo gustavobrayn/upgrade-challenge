@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Heading, Wrapper, Content, Label, Footer } from './styles';
+import { Footer } from './styles';
 import {
   Spacer,
   Button,
   Select,
   CheckBox,
   Loading,
+  PageWrapper,
+  Card,
+  Heading,
+  Text,
 } from '../../common/components';
 import { useSignUp } from '../../common/contexts';
 import { useColorsApi } from '../../common/hooks';
@@ -48,30 +52,32 @@ export function MoreInfo() {
     return <Loading />;
   }
 
+  const colorsOptions = colors.data.reduce((acc, item) => {
+    return [...acc, { value: item, text: capitalize(item) }];
+  }, []);
+
+  const options = [
+    { value: '', text: 'Select your favorite color' },
+    ...colorsOptions,
+  ];
+
   return (
-    <Wrapper>
-      <Spacer y="md" />
-      <Content>
+    <PageWrapper>
+      <Card>
         <header>
           <Heading>Additional Info</Heading>
         </header>
         <form onSubmit={onSubmit}>
           <Spacer y="md" />
-          <label htmlFor="color">Favorite color</label>
           <Select
             name="color"
             id="color"
+            label="Favorite color"
             onChange={handleChange}
             value={data.color}
             required
-          >
-            <option value="">Select your favorite color</option>
-            {colors.data.map((color) => (
-              <option key={color} value={color}>
-                {capitalize(color)}
-              </option>
-            ))}
-          </Select>
+            options={options}
+          />
           <Spacer y="xs" />
           <CheckBox
             id="terms"
@@ -80,10 +86,10 @@ export function MoreInfo() {
             checked={data.terms}
             required
             label={
-              <Label>
+              <Text>
                 I agree to{' '}
                 <Link to="/terms-and-conditions">Terms and Conditions</Link>
-              </Label>
+              </Text>
             }
           />
           <Spacer y="lg" />
@@ -94,7 +100,7 @@ export function MoreInfo() {
             <Button type="submit">Next</Button>
           </Footer>
         </form>
-      </Content>
-    </Wrapper>
+      </Card>
+    </PageWrapper>
   );
 }

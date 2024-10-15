@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  display: flex;
-  height: 100%;
-
-  flex-direction: column;
-  align-items: center;
-  padding-left: ${({ theme }) => theme.spacing.sm};
-  padding-right: ${({ theme }) => theme.spacing.sm};
-`;
-
-export const Content = styled.div`
+export const BaseCard = styled.div`
   width: 100%;
   max-width: 400px;
   background-color: ${({ theme }) => theme.colors.secondary};

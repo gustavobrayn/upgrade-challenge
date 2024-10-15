@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
-const SignUpContext = createContext({});
+const SignUpContext = createContext();
 
 export const SignUpProvider = (props) => {
   const { children } = props;

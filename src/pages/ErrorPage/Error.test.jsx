@@ -7,6 +7,19 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
+jest.mock('../../common/contexts', () => ({
+  useSignUp: jest.fn(() => ({
+    setInfo: jest.fn(),
+    info: {
+      name: 'John',
+      email: 'john@doe.com',
+      password: '12345',
+      color: 'black',
+      terms: true,
+    },
+  })),
+}));
+
 describe('<ErrorPage />', () => {
   it('should render without crashing', () => {
     render(<ErrorPage />, { wrapper: ThemeProvider });
