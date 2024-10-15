@@ -1,11 +1,13 @@
 import React from 'react';
 import { MoreInfo } from './MoreInfo';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { ThemeProvider } from '../../common/providers/ThemeProvider';
 import { useColorsApi } from '../../common/hooks';
+import { useNavigate } from 'react-router-dom';
+import { useSignUp } from '../../common/contexts';
 
 jest.mock('react-router-dom', () => ({
-  useNavigate: () => jest.fn(),
+  useNavigate: jest.fn(() => jest.fn()),
   Link: ({ children }) => <p>{children}</p>,
 }));
 
@@ -96,5 +98,45 @@ describe('<MoreInfo />', () => {
     render(<MoreInfo />, { wrapper: ThemeProvider });
 
     expect(screen.getByTestId('loading-overlay')).toBeInTheDocument();
+  });
+
+  it('should call navigate on click back button', () => {
+    const mockedNavigate = jest.fn();
+    useNavigate.mockImplementationOnce(() => mockedNavigate);
+
+    render(<MoreInfo />, { wrapper: ThemeProvider });
+
+    expect(mockedNavigate).not.toHaveBeenCalled();
+
+    const button = screen.getByRole('button', { name: /back/i });
+    fireEvent.click(button);
+
+    expect(mockedNavigate).toHaveBeenCalledTimes(1);
+    expect(mockedNavigate).toHaveBeenCalledWith(-1);
+  });
+
+  it('should call setInfo on form submit', () => {
+    const mockSetInfo = jest.fn();
+    const mockInfo = {
+      name: 'John',
+      email: 'john@doe.com',
+      password: 'password123',
+      color: '',
+      terms: false,
+    };
+    useSignUp.mockReturnValue({ info: mockInfo, setInfo: mockSetInfo });
+
+    render(<MoreInfo />, { wrapper: ThemeProvider });
+
+    fireEvent.change(screen.getByRole('combobox'), {
+      target: { value: 'red' },
+    });
+    fireEvent.click(screen.getByRole('checkbox'));
+
+    expect(mockSetInfo).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByRole('button', { name: /next/i }));
+
+    expect(mockSetInfo).toHaveBeenCalledTimes(1);
   });
 });

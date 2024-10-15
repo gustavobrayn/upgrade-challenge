@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Spacer,
   Input,
   Button,
-  Text,
   Heading,
   Card,
   PageWrapper,
 } from '../../common/components';
 import { useSignUp } from '../../common/contexts';
-import { useNavigate } from 'react-router-dom';
 
 export function SignUp() {
   const { info, setInfo } = useSignUp();
@@ -41,7 +40,7 @@ export function SignUp() {
         <header>
           <Heading>Sign up</Heading>
         </header>
-        <form onSubmit={onSubmit}>
+        <form>
           <Spacer y="md" />
           <Input
             id="name"
@@ -75,7 +74,9 @@ export function SignUp() {
             required
           />
           <Spacer y="lg" />
-          <Button type="submit">Next</Button>
+          <Button type="button" onClick={onSubmit}>
+            Next
+          </Button>
         </form>
       </Card>
     </PageWrapper>
