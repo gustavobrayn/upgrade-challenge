@@ -79,7 +79,7 @@ describe('<SignUp />', () => {
       target: { value: 'password123' },
     });
 
-    fireEvent.click(screen.getByRole('button', { name: /next/i }));
+    fireEvent.submit(screen.getByRole('form'));
 
     expect(mockSetInfo).toHaveBeenCalledWith({
       name: 'John',

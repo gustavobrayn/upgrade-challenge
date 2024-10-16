@@ -41,7 +41,7 @@ export function SignUp() {
         <header>
           <Heading>Sign up</Heading>
         </header>
-        <form>
+        <form onSubmit={onSubmit} name="signup-form">
           <Spacer y="md" />
           <Input
             id="name"
@@ -77,9 +77,7 @@ export function SignUp() {
           <Spacer y="xs" />
           <Text size="sm">All fields with * are required</Text>
           <Spacer y="lg" />
-          <Button type="button" onClick={onSubmit}>
-            Next
-          </Button>
+          <Button type="submit">Next</Button>
         </form>
       </Card>
     </PageWrapper>
